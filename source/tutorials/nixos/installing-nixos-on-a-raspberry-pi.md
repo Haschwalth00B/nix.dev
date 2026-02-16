@@ -79,8 +79,15 @@ Replace `SSID` and `passphrase` with your wifi credentials and run:
 # wpa_supplicant -B -i wlan0 -c <(wpa_passphrase 'SSID' 'passphrase') &
 ```
 
-Wait for `wpa_supplicant` to establish the connection, then obtain an IP address:
+Wait for `wpa_supplicant` to establish the connection. Then assign a static IP address to enable internet access. Replace `192.168.1.X` with an available IP address on your network and `192.168.1.1` with your router's gateway address:
 ```shell-session
+# ip addr add 192.168.1.X/24 dev wlan0
+# ip route add default via 192.168.1.1
+```
+
+Now you can download and run `dhcpcd` to obtain a proper IP address:
+```shell-session
+# nix-shell -p dhcpcd
 # dhcpcd wlan0
 ```
 
