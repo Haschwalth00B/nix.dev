@@ -81,18 +81,7 @@ Once `wpa_supplicant` reports that the connection is established, obtain an IP a
 # dhcpcd wlan0
 ```
 
-If `dhcpcd` is not available, load it with:
-```shell-session
-# nix-shell -p dhcpcd
-# dhcpcd wlan0
-```
-
 After a few seconds, verify the connection works by running `host nixos.org` to check that DNS resolves correctly.
-
-If DNS resolution fails, you may need to manually add a nameserver:
-```shell-session
-# echo "nameserver 8.8.8.8" > /etc/resolv.conf
-```
 
 In case you've made a typo, run `pkill wpa_supplicant` and start over.
 
