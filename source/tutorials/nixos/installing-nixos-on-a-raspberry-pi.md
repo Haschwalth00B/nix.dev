@@ -204,3 +204,4 @@ $ sudo -i
   We recommend pinning the reference to `nixos-hardware`: [](ref-pinning-nixpkgs)
 
 - To tweak bootloader options affecting hardware, [see `config.txt` options](https://www.raspberrypi.org/documentation/configuration/config-txt/). You can change these options by running `mount /dev/disk/by-label/FIRMWARE /mnt` and opening `/mnt/config.txt`.
+
